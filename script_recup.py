@@ -72,11 +72,13 @@ final_data = np.array([[[]]])
 final_labels = np.array([[[]]])
 
 
+batch_size = 20
+batch_size_nmap = 43
+batch_size_esc = 1
+batch_size_ddos = 5
+epoch = 3
 
-batch_size = 32
-epoch = 2
-
-print("Quel type d'attaque ? 0 :None, 1 : Attaque, ...,100 : Stop")
+print("Quel type d'attaque ? 0 :None, 1 : NMAP, 2 : Escalade, 3 : DDOS ,100 : Stop")
 attak = 0
 
 while(attak != 100):
@@ -106,16 +108,17 @@ while(attak != 100):
           final_data = np.reshape(final_data,(-1,1,6))
           final_labels = np.append(final_labels,test_labels)
           final_labels = np.reshape(final_labels,(-1,1,2))
-        print("Quel type d'attaque ? 0 :None, 1 : Attaque, ...,100 : Stop")
+        print("Quel type d'attaque ? 0 :None, 1 : NMAP, 2 : Escalade, 3 : DDOS ,100 : Stop")
 
 
 
-    elif attak==1:
+
+    elif attak==1: #NMAP 10000 ports (43sec)
         for i in range(0,epoch):
           test_data = np.array([[]])
           test_labels = np.array([[]])
           #création des batchs
-          for i in range(0,batch_size):
+          for i in range(0,batch_size_nmap):
               input_data = create_data()
               input_data = np.array([input_data])
               input_data = np.reshape(np.array([input_data]),(-1,6))
@@ -133,7 +136,60 @@ while(attak != 100):
           final_data = np.reshape(final_data,(-1,1,6))
           final_labels = np.append(final_labels,test_labels)
           final_labels = np.reshape(final_labels,(-1,1,2))
-        print("Quel type d'attaque ? 0 :None, 1 : Attaque, ...,100 : Stop")
+        print("Quel type d'attaque ? 0 :None, 1 : NMAP, 2 : Escalade, 3 : DDOS ,100 : Stop")
+
+
+    elif attak==2:#escalade de privilèges
+        for i in range(0,epoch):
+          test_data = np.array([[]])
+          test_labels = np.array([[]])
+          #création des batchs
+          for i in range(0,batch_size_esc):
+              input_data = create_data()
+              input_data = np.array([input_data])
+              input_data = np.reshape(np.array([input_data]),(-1,6))
+             #print(input_data.shape)
+
+              test_data = np.append(test_data,input_data)
+              test_data = np.reshape(test_data,(-1,6))
+              test_labels = np.append(test_labels,np.array([0,1]))#change les labels ici
+              test_labels = np.reshape(test_labels,(-1,2))
+              print(test_data.shape)
+              print(test_labels[i])
+
+              time.sleep(0.3)
+          final_data = np.append(final_data,test_data)
+          final_data = np.reshape(final_data,(-1,1,6))
+          final_labels = np.append(final_labels,test_labels)
+          final_labels = np.reshape(final_labels,(-1,1,2))
+        print("Quel type d'attaque ? 0 :None, 1 : NMAP, 2 : Escalade, 3 : DDOS ,100 : Stop")
+
+
+    elif attak==3:#escalade de privilèges
+        for i in range(0,epoch):
+          test_data = np.array([[]])
+          test_labels = np.array([[]])
+          #création des batchs
+          for i in range(0,batch_size_ddos):
+              input_data = create_data()
+              input_data = np.array([input_data])
+              input_data = np.reshape(np.array([input_data]),(-1,6))
+             #print(input_data.shape)
+
+              test_data = np.append(test_data,input_data)
+              test_data = np.reshape(test_data,(-1,6))
+              test_labels = np.append(test_labels,np.array([0,1]))#change les labels ici
+              test_labels = np.reshape(test_labels,(-1,2))
+              print(test_data.shape)
+              print(test_labels[i])
+
+              time.sleep(0.3)
+          final_data = np.append(final_data,test_data)
+          final_data = np.reshape(final_data,(-1,1,6))
+          final_labels = np.append(final_labels,test_labels)
+          final_labels = np.reshape(final_labels,(-1,1,2))
+        print("Quel type d'attaque ? 0 :None, 1 : NMAP, 2 : Escalade, 3 : DDOS ,100 : Stop")
+
 
 
 
