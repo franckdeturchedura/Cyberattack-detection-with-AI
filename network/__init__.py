@@ -20,6 +20,6 @@ print(model.summary())
 
 
 
-model,loss_tra,loss_val,acc_val,acc_tra=train_network(model,train_dataset,validation_dataset,10,32)
+model,loss_tra,loss_val,acc_val,acc_tra=train_network(model,train_dataset,validation_dataset,1000,32)
 plot_acc(acc_tra,acc_val)
 plot_loss(loss_tra,loss_val)

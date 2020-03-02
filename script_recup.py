@@ -1,4 +1,3 @@
-#à la fin o souhaite avoir une base de données clean prête à être donnée au network
 import psutil
 from datetime import datetime
 import numpy as np
@@ -152,13 +151,6 @@ scaled_data_train = (data_train-data_train.mean())/data_train.std()
 scaled_data_validation = (data_validation-data_validation.mean())/data_validation.std()
 scaled_data_test = (data_test-data_test.mean())/data_test.std()
 
-train_dataset = tf.data.Dataset.from_tensor_slices((scaled_data_train,labels_train))
-test_dataset = tf.data.Dataset.from_tensor_slices((scaled_data_test,labels_test))
-validation_dataset = tf.data.Dataset.from_tensor_slices((scaled_data_validation,labels_validation))
-
-
-
-for data_batch, labels_batch in train_dataset.batch(batch_size):
-
-    print(data_batch)
-    print(labels_batch)
+np.save('data_train.npy',scaled_data_train)
+np.save('data_validation.npy',scaled_data_validation)
+np.save('data_test.npy',scaled_data_test)

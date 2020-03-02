@@ -9,8 +9,8 @@ class DenseModelV1(tf.keras.Model):#on considère que le réseau n'est pas récu
     self.dense1 = tf.keras.layers.Dense(16,name="dense1")
     self.activation = tf.keras.layers.LeakyReLU(alpha=0.3,name="activation")#on utilise leakyrelu pour éviter que des neurones "meurent" car ils ne sont jamais activés
     self.dense2 = tf.keras.layers.Dense(32,name="dense2")
-    self.dense3 = tf.keras.layers.Dense(64,name="dense3")
-    self.out = tf.keras.layers.Dense(2,activation="sigmoid",name="out")
+    self.dense3 = tf.keras.layers.Dense(16,name="dense3")
+    self.out = tf.keras.layers.Dense(1,activation="sigmoid",name="out")
 
   def call(self,data):
     dense1 = self.dense1(data)
