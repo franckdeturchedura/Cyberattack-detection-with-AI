@@ -74,7 +74,7 @@ final_labels = np.array([[[]]])
 
 
 
-batch_size = 32
+batch_size = 2
 epoch = 2
 
 print("Quel type d'attaque ? 0 :None, 1 : Attaque, ...,100 : Stop")

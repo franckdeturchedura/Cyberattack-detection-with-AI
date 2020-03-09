@@ -20,6 +20,8 @@ print(model.summary())
 
 
 
-model,loss_tra,loss_val,acc_val,acc_tra=train_network(model,dataset_tr,dataset_te,200,16)
+model,loss_tra,loss_val,acc_val,acc_tra=train_network(model,dataset_tr,dataset_te,500,32)
 plot_acc(acc_tra,acc_val)
 plot_loss(loss_tra,loss_val)
+
+tf.keras.models.save_model(model,'model.h5py')
