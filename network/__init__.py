@@ -3,7 +3,7 @@ import tensorflow as tf
 from .data_process import train_dataset,validation_dataset,test_dataset,scaled_data_train
 from .network_model import train_network,DenseModelV1
 from .viewdata import train_data_viewer,validation_data_viewer,test_data_viewer,plot_acc,plot_loss
-
+from lecture_data import  dataset_tr,dataset_te
 
 print(tf.__version__)
 
@@ -20,6 +20,6 @@ print(model.summary())
 
 
 
-model,loss_tra,loss_val,acc_val,acc_tra=train_network(model,train_dataset,validation_dataset,1000,32)
+model,loss_tra,loss_val,acc_val,acc_tra=train_network(model,dataset_tr,dataset_te,200,16)
 plot_acc(acc_tra,acc_val)
 plot_loss(loss_tra,loss_val)
