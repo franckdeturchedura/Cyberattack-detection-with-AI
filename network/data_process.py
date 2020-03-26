@@ -146,7 +146,7 @@ data_train,data_validation,labels_train,labels_validation = train_test_split(dat
 
 final_data = final_data.astype(np.float32)
 final_labels = final_labels.astype(np.float32)
-scaled_data_test = (data_test-data_test.mean())/data_test.std()
+#scaled_data_test = (data_test-data_test.mean())/data_test.std()
 
 scaled_data_train = (data_train-data_train.mean())/data_train.std()
 scaled_data_validation = (data_validation-data_validation.mean())/data_validation.std()

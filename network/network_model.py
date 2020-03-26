@@ -55,7 +55,7 @@ def validation_step(data,label,model):
 
 #on va définir la fonction de cout et l'optimizer selon notre problème
 loss_object = tf.keras.losses.CategoricalCrossentropy()#pas Sparse car one hot encoding
-optimizer = tf.keras.optimizers.Adam(learning_rate=0.001)#descente de gradient optimisée #learning rate dépendra du nombre de données
+optimizer = tf.keras.optimizers.Adam(learning_rate=0.01)#descente de gradient optimisée #learning rate dépendra du nombre de données
 
 #On définit nos metrics pour voir si le réseau se comporte bien
 #Pour le perte
