@@ -1,43 +1,18 @@
-# projet_ia_e4
+# Cyberattack detection with AI - ESIEE Paris Project
 
-**PARTIE IA**
+## The aim
 
+This project, in collaboration with Thalès, had to perform an attack recognition with AI from some probes (that we had to determine).
 
+We finally focused on the most obvious ones, which are the CPU's temp, the nbr of processes in progress, the number of bits sent and received, and some others.
 
-**Ia - Deep learning visant à détecter les cyberattaques sur des systèmes type radar.**
+Results on our machine are quite good. However, since these probes send different values depending on the hardware, we have to train the network for each environment we want to use.
 
-**Utilisation de tensorflow 2.0**
+The network is a FFNN (Feed Forward Neural Network). To improve our results, we should use the logs (with an natural language processing or some other algorithms to extract the interesting information) with maybe a RNN (Recurrent Neural Network) to take into account previous sates (no more Markov assumptions).
 
-**run.py :** 
+## How to test it 
 
-Permet de lancer l'ensemble de l'appli
+As said previously, you will have first to get data for your environment. This repository don't focus on this, but the scripts with the good probes are here available (`script_bash_auto.py`). By running the `run.py` script, the network will be trained with the `.npy` dataset given.
 
-**requirements.txt :** 
-
-Liste l'ensemble des libraries nécessaires. 
-Utilisable via la commande `python3 -m pip install -r requirements.txt̀`
-
-**network folder :**
-
-Contient l'ensemble des fichiers nécessaires à la récupération des données, leur traitement, leur visualisation et l'entraînement de l'IA
-
-**network/__init__.py :**
-
-Contient l'instance du réseau défini dans `network_model.py`, les données récupérées via le fichier `data_process.py` et permet la visualisation des résultats via les fonctions définies dans `viewdata.py`
-
-**network/data_process.py :**
-
-Récupère les données via les sondes définies avec la partie **cyber**, permet de récupérer les données en boucle telle que 0 = état normal, 1 = attaque et 100 = fin
-
-**network/network_model.py :**
-
-Définie la classe qui permettra d'instancier le réseau ainsi que les fonctions utiles à l'entraînement
-
-**network/viewdata.py :**
-
-Définie les fonctions utiles à la visualisation de l'évolution de l'accuracy et la perte (loss) sur les données d'entraînement et de validation (pas de cross validation mais validation classique)
-
-
-
-**PARTIE SE**
+Then in de "Déploiement" folder is the script to make it run on you device.
 
