@@ -1,4 +1,4 @@
-# Cyberattack detection with AI - ESIEE Paris Project
+# Cyberattack detection with AI - ESIEE Paris Project x Thalès
 
 ## The aim
 
