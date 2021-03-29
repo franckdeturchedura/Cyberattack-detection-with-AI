@@ -105,7 +105,7 @@ pycairo==1.16.2
 pycrypto==2.6.1
 pycups==1.9.73
 PyDispatcher==2.0.5
-Pygments==2.5.2
+Pygments==2.7.4
 pygobject==3.26.1
 PyHamcrest==1.9.0
 pymacaroons==0.13.0
